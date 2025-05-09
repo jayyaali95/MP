@@ -1,0 +1,25 @@
+dataloader:
+  class: CSVDataLoader
+  filename: "./data/sample_data.csv"
+
+metricfunction:
+  class: MSE
+
+tracker:
+  class: StdoutTracker
+
+preprocessor:
+  class: MinMaxNormalizer
+
+model:
+  class: LinearModel
+  input_dim: 4
+
+optimizer:
+  class: Adam
+  learning_rate: 0.01
+
+trainloop:
+  class: StandardTrainLoop
+  epochs: 50
+  batch_size: 16 
