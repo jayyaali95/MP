@@ -24,6 +24,13 @@ class Profiler:
         else:
             logging.info(f"Execution time: {elapsed_time:.6f} seconds")
 
+    def report(self):
+        """Report the collected profiling data."""
+        if self.collector:
+            logging.info(f"Collected profiling data: {self.collector}")
+        else:
+            logging.info("No profiling data collected.")
+
 def add(a: float, b: float) -> float:
     return a + b
 

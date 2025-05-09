@@ -19,8 +19,18 @@ def profiler():
 def add(a: float, b: float) -> float:
     return a + b
 
+
+@profiler()
+def sub(a: float, b: float) -> float:
+    return a - b
+
 if __name__ == "__main__":
     # Profile the add function
     with profiler():
-        result = add(1, 2)
-    logging.info(f"Result: {result}")
+        add_result = add(1, 2)
+    logging.info(f"Addition result using profiler: {add_result}")
+
+    # Profile the sub function
+    sub_result = sub(3, 1)
+    logging.info(f"Subtraction result using decorator: {sub_result}")
+
