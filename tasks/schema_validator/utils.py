@@ -31,6 +31,11 @@ class DataFrame(pd.DataFrame):
                 raise ValueError(f"Column '{k}' has values below minimum {col.min}")
             if col.max is not None and (series > col.max).any():
                 raise ValueError(f"Column '{k}' has values above maximum {col.max}")
+            
+        if not self._schema._allow_extra_columns:
+            extra = set(self.columns) - set(columns)
+            if extra:
+                raise ValueError(f"Extra columns not allowed: {extra}")
 
 def validate(func):
     def wrapper(*args, **kwargs):
