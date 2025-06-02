@@ -9,3 +9,4 @@ class InitSubclassSchema:
             if isinstance(v, Column):
                 columns[k] = v
         cls._columns_ = columns
+        cls._allow_extra_columns = getattr(cls, "_allow_extra_columns", False)
